@@ -20,7 +20,7 @@ RSpec.describe "Patients API", type: :request do
         json = JSON.parse(response.body)
 
         expect(json["id"]).to be_present
-        expect(json["api_key"]).to be_present
+        expect(json["token"]).to be_present
         expect(json["treatment_interval_days"]).to eq(3)
       end
     end
