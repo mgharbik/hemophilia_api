@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   resources :patients, only: :create
   resources :injections, only: [:create, :index]
+  resource :adherence_score, only: [:show]
 end

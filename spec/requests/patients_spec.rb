@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Patients", type: :request do
+RSpec.describe "Patients API", type: :request do
   describe "POST /patients" do
     let(:valid_params) do
       {
