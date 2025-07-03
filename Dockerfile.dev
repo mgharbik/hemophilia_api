@@ -1,0 +1,21 @@
+# Use official Ruby image
+FROM ruby:3.3.6
+
+# Install SQLite3 client and build tools
+RUN apt-get update -qq && apt-get install -y sqlite3 libsqlite3-dev
+
+# Set working directory
+WORKDIR /app
+
+# Copy Gemfile and Gemfile.lock to install gems
+COPY Gemfile Gemfile.lock ./
+RUN bundle install --jobs 4 --retry 5
+
+# Copy the application code
+COPY . .
+
+# Expose port 3000
+EXPOSE 3000
+
+# Run migrations and start the server binding to all interfaces
+CMD ["bash", "-c", "bundle exec rails server -b 0.0.0.0"]
