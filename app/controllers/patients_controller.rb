@@ -1,4 +1,6 @@
 class PatientsController < ApplicationController
+  skip_before_action :authorize_api_key!
+
   def create
     patient = Patient.new(patient_params)
 

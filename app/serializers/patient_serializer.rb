@@ -1,3 +1,7 @@
 class PatientSerializer < ActiveModel::Serializer
-  attributes :id, :api_key, :treatment_interval_days
+  attributes :id, :treatment_interval_days, :token
+
+  def token
+    TokenService.encode(object)
+  end
 end
