@@ -35,7 +35,7 @@ This API allows Hemophilia patients to maintain a digital diary of their prophyl
 3. Setup the database
 
    ```bash
-   docker-compose run --rm app bin/rails db:create db:migrate
+   docker-compose run --rm api bin/rails db:create db:migrate
 
 4. The API will be accessible at http://localhost:3000
 
