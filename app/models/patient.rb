@@ -3,4 +3,12 @@ class Patient < ApplicationRecord
 
   validates :api_key, presence: true
   validates :treatment_interval_days, presence: true, numericality: { greater_than: 0 }
+
+  before_validation :generate_api_key, on: :create
+
+  private
+
+  def generate_api_key
+    self.api_key ||= SecureRandom.hex(16)
+  end
 end
